@@ -4,6 +4,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter_tests/components/custom_hitbox.dart';
+import 'package:flutter_tests/components/player.dart';
 import 'package:flutter_tests/pixel_adventure.dart';
 
 class Fruit extends SpriteAnimationComponent with HasGameRef<pixel_adventure>, CollisionCallbacks{
@@ -43,8 +44,9 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<pixel_adventure>, C
 
   }
   
-  void collidingWithPlayer() async{
+  void collidingWithPlayer(Player player) async{
     if(!collected){
+      player.currCarrying++;
       collected = true;
       if (game.playSounds) FlameAudio.play('collect_fruit.wav', volume: game.soundVolume);
       animation = SpriteAnimation.fromFrameData(

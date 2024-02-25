@@ -5,6 +5,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter_tests/components/background_tile.dart';
 import 'package:flutter_tests/components/checkpoint.dart';
 import 'package:flutter_tests/components/collision_block.dart';
+import 'package:flutter_tests/components/dumpster.dart';
 import 'package:flutter_tests/components/fruit.dart';
 import 'package:flutter_tests/components/player.dart';
 import 'package:flutter_tests/components/saw.dart';
@@ -46,7 +47,9 @@ class Level extends World with HasGameRef<pixel_adventure>{
   
   void _spawningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
-
+    Dumpster dumpster = Dumpster(position: Vector2(0,0),
+              size: Vector2(0, 0));;
+    int fruitCounter = 0;
     if(spawnPointsLayer != null){
       for(final spawnPoint in spawnPointsLayer.objects){
         switch (spawnPoint.class_) {
@@ -62,6 +65,7 @@ class Level extends World with HasGameRef<pixel_adventure>{
               size: Vector2(spawnPoint.width, spawnPoint.height)
             );
             add(fruit);
+            fruitCounter++;
             break;
           case 'Saw':
             final bool isVertical =spawnPoint.properties.getValue('isVertical');
@@ -79,9 +83,15 @@ class Level extends World with HasGameRef<pixel_adventure>{
               position: Vector2(spawnPoint.x,spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height));
               add(checkpoint);
+          case 'Dumpster':
+            dumpster = Dumpster(position: Vector2(spawnPoint.x,spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height));
+              add(dumpster);
           default:
         }
       }
+
+    dumpster.assignNumberToWin(fruitCounter);
     }
   }
   

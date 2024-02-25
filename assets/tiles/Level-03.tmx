@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="38">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="44">
  <tileset firstgid="1" source="Pixel Adventure.tsx"/>
  <layer id="1" name="Background" width="40" height="23">
   <properties>
@@ -69,5 +69,10 @@
    </properties>
   </object>
   <object id="37" type="Checkpoint" x="208" y="160" width="64" height="64"/>
+  <object id="39" name="Kiwi" type="Fruit" x="352" y="64" width="32" height="32"/>
+  <object id="40" name="Kiwi" type="Fruit" x="352" y="64" width="32" height="32"/>
+  <object id="41" name="Kiwi" type="Fruit" x="400" y="64" width="32" height="32"/>
+  <object id="42" name="Kiwi" type="Fruit" x="288" y="128" width="32" height="32"/>
+  <object id="43" name="Kiwi" type="Fruit" x="400" y="128" width="32" height="32"/>
  </objectgroup>
 </map>

@@ -2,10 +2,13 @@ import 'dart:async';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/palette.dart';
 import 'package:flame_audio/flame_audio.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_tests/components/checkpoint.dart';
 import 'package:flutter_tests/components/collision_block.dart';
 import 'package:flutter_tests/components/custom_hitbox.dart';
+import 'package:flutter_tests/components/dumpster.dart';
 import 'package:flutter_tests/components/fruit.dart';
 import 'package:flutter_tests/components/saw.dart';
 import 'package:flutter_tests/components/utils.dart';
@@ -17,8 +20,14 @@ enum PlayerState {
   idle, running, jumping, falling, hit, appearing, disappearing
 }
 
-
+final style = TextStyle(color : BasicPalette.white.color);
+final regular = TextPaint(style: style);
 class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventure>, KeyboardHandler, CollisionCallbacks{
+
+  // Text
+  TextComponent counter = TextComponent();
+  final carryCapacity = 2;
+  int currCarrying = 0;
 
   String character;
   Player({position, this.character = 'Ninja Frog'}) : super(position: position);
@@ -71,8 +80,12 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
     // Ran at the beginning of the load
     _loadAllAnimations();
 
-    startingPosition = Vector2(position.x, position.y);
+    counter..text = '0/$carryCapacity'..textRenderer = regular;
+    counter.position = Vector2(5, -12);
+    add(counter);
 
+
+    startingPosition = Vector2(position.x, position.y);
     add(RectangleHitbox(
       position: Vector2(hitbox.offsetX, hitbox.offsetY),
       size: Vector2(hitbox.width, hitbox.height)
@@ -118,11 +131,16 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     // TODO: implement onCollisionStart
     if(!reachedCheckpoint){
-      if(other is Fruit) other.collidingWithPlayer();
-
+      if(currCarrying < carryCapacity){
+        if(other is Fruit) other.collidingWithPlayer(this);
+        counter.text = '$currCarrying/$carryCapacity';
+      }
+  
       if(other is Saw) _respawn();
 
       if(other is Checkpoint) _reachedCheckpoint();
+
+      if(other is Dumpster) _emptyTrash(other);
     }
     super.onCollisionStart(intersectionPoints, other);
   }
@@ -181,9 +199,16 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
 
     if(velocity.x < 0 && scale.x > 0){
       flipHorizontallyAroundCenter();
+      
+      counter.flipHorizontallyAroundCenter();
+      counter.position = Vector2(25, -12);
     }
     else if(velocity.x > 0 && scale.x < 0){
       flipHorizontallyAroundCenter();
+      
+      counter.flipHorizontallyAroundCenter();
+      
+      counter.position = Vector2(5, -12);
     }
 
     if (velocity.x != 0){
@@ -301,6 +326,7 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
       position = position - Vector2.all(32);
     } else if (scale.x < 0){
       position = position + Vector2(32, -32);
+      
     }
 
     current = PlayerState.disappearing;
@@ -319,5 +345,12 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
 
 
   }
+  
+  void _emptyTrash(Dumpster other) {
+    if(other.collidingWithPlayer(currCarrying)) _reachedCheckpoint();
+    currCarrying = 0;
+    counter.text = '$currCarrying/$carryCapacity';
+  }
+  
 
 }
