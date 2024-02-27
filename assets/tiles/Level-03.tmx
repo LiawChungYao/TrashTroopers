@@ -54,13 +54,6 @@
   <object id="26" name="Kiwi" type="Fruit" x="480" y="176" width="32" height="32"/>
   <object id="27" name="Cherries" type="Fruit" x="352" y="128" width="32" height="32"/>
   <object id="28" name="Kiwi" type="Fruit" x="304" y="64" width="32" height="32"/>
-  <object id="33" type="Saw" x="368" y="304" width="32" height="32">
-   <properties>
-    <property name="isVertical" type="bool" value="false"/>
-    <property name="offNeg" type="float" value="6"/>
-    <property name="offPos" type="float" value="11"/>
-   </properties>
-  </object>
   <object id="35" type="Saw" x="160" y="240" width="32" height="32">
    <properties>
     <property name="isVertical" type="bool" value="true"/>

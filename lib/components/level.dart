@@ -17,6 +17,8 @@ class Level extends World with HasGameRef<pixel_adventure>{
   late TiledComponent level;
   List<CollisionBlock>collisionBlocks = [];
 
+  List<Component>  components = [];
+
   @override
   FutureOr<void> onLoad() async{
 
@@ -47,8 +49,7 @@ class Level extends World with HasGameRef<pixel_adventure>{
   
   void _spawningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
-    Dumpster dumpster = Dumpster(position: Vector2(0,0),
-              size: Vector2(0, 0));;
+
     int fruitCounter = 0;
     if(spawnPointsLayer != null){
       for(final spawnPoint in spawnPointsLayer.objects){
@@ -57,6 +58,7 @@ class Level extends World with HasGameRef<pixel_adventure>{
             player.position = Vector2(spawnPoint.x, spawnPoint.y);
             player.scale.x = 1;
             add(player);
+            components.add(player);
             break;
           case 'Fruit':
             final fruit = Fruit(
@@ -65,6 +67,8 @@ class Level extends World with HasGameRef<pixel_adventure>{
               size: Vector2(spawnPoint.width, spawnPoint.height)
             );
             add(fruit);
+            
+            components.add(fruit);
             fruitCounter++;
             break;
           case 'Saw':
@@ -77,21 +81,24 @@ class Level extends World with HasGameRef<pixel_adventure>{
               position: Vector2(spawnPoint.x,spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height));
               add(saw);
+              components.add(saw);
               break;
           case 'Checkpoint':
             final checkpoint = Checkpoint(
               position: Vector2(spawnPoint.x,spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height));
               add(checkpoint);
+              components.add(checkpoint);
           case 'Dumpster':
-            dumpster = Dumpster(position: Vector2(spawnPoint.x,spawnPoint.y),
+            final dumpster = Dumpster(position: Vector2(spawnPoint.x,spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height));
               add(dumpster);
+              components.add(dumpster);
           default:
         }
       }
 
-    dumpster.assignNumberToWin(fruitCounter);
+    numberToWin(fruitCounter);
     }
   }
   
@@ -123,4 +130,19 @@ class Level extends World with HasGameRef<pixel_adventure>{
     }
     player.collisionBlocks = collisionBlocks;
     }
+
+
+  void deleteAll(){
+    for (Component stuff in components){
+      stuff.removeFromParent();
+    }
+  }
+
+  void numberToWin(int fruitCounter){
+    for(Component stuff in components){
+      if (stuff is Dumpster){
+        stuff.assignNumberToWin(fruitCounter);
+      }
+    }
+  }
 }

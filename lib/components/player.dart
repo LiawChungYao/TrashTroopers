@@ -80,6 +80,9 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
     // Ran at the beginning of the load
     _loadAllAnimations();
 
+    
+    currCarrying = 0;
+
     counter..text = '0/$carryCapacity'..textRenderer = regular;
     counter.position = Vector2(5, -12);
     add(counter);
@@ -319,7 +322,6 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
   }
   
   void _reachedCheckpoint() async{
-
     if(game.playSounds) FlameAudio.play('disappear.wav', volume: game.soundVolume);
     reachedCheckpoint = true;
     if(scale.x > 0){
@@ -342,7 +344,6 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
       Future.delayed(waitToChangeDuration, () {
         game.loadNextLevel();
       });
-
 
   }
   

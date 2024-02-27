@@ -37,11 +37,8 @@ class Dumpster extends SpriteAnimationComponent with HasGameRef<pixel_adventure>
   }
 
   bool collidingWithPlayer(int curr){
-    
-    print(currNum);
     currNum += curr;
-    if (numberToWin == currNum){
-      print("Yeay");
+    if (numberToWin <= currNum){
       return true;
     }
     return false;

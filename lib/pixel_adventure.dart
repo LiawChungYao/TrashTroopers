@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_tests/components/jump_button.dart';
 import 'package:flutter_tests/components/player.dart';
 import 'package:flutter_tests/components/level.dart';
@@ -23,7 +25,9 @@ class pixel_adventure extends FlameGame with HasKeyboardHandlerComponents, DragC
   bool playSounds = true;
   double soundVolume = 1.0;
 
-  List<String> levelNames = ['TT-01', 'Level-02'];
+  late Level currWorld;
+
+  List<String> levelNames = ['TT-04', 'TT-03', 'TT-01'];
   int currentLevelIndex = 0;
 
   @override
@@ -31,6 +35,7 @@ class pixel_adventure extends FlameGame with HasKeyboardHandlerComponents, DragC
     // Load all images into cache
     await images.loadAllImages();
 
+    debugMode =true;
     _loadLevel();
     
     if(showControls){
@@ -81,6 +86,7 @@ class pixel_adventure extends FlameGame with HasKeyboardHandlerComponents, DragC
   }
   
   void loadNextLevel(){
+    currWorld.deleteAll();
     if(currentLevelIndex < levelNames.length -1){
       currentLevelIndex++;
     } else {
@@ -90,19 +96,20 @@ class pixel_adventure extends FlameGame with HasKeyboardHandlerComponents, DragC
     _loadLevel();
   }
 
+
   void _loadLevel() {
     Future.delayed(const Duration(milliseconds: 350 ,), (){
-      Level world = Level(
-          player : player, 
+      currWorld = Level(
+          player : Player(character: 'Ninja Frog'), 
           levelName: levelNames[currentLevelIndex]
         );
 
     
     // Camera
-    cam = CameraComponent.withFixedResolution(world: world ,width: 640, height: 360);
+    cam = CameraComponent.withFixedResolution(world: currWorld ,width: 640, height: 360);
     cam.viewfinder.anchor = Anchor.topLeft;
 
-    addAll([cam,world]);
+    addAll([cam,currWorld]);
     
     });
   }
