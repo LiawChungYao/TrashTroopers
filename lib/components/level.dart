@@ -9,6 +9,7 @@ import 'package:flutter_tests/components/dumpster.dart';
 import 'package:flutter_tests/components/fruit.dart';
 import 'package:flutter_tests/components/player.dart';
 import 'package:flutter_tests/components/saw.dart';
+import 'package:flutter_tests/components/textbox.dart';
 import 'package:flutter_tests/pixel_adventure.dart';
 class Level extends World with HasGameRef<pixel_adventure>{
   final String levelName;
@@ -21,7 +22,9 @@ class Level extends World with HasGameRef<pixel_adventure>{
 
   @override
   FutureOr<void> onLoad() async{
-
+    // Reset 
+    Dumpster.currNum = 0;
+    
     level = await TiledComponent.load('$levelName.tmx', Vector2.all(16));
 
     add(level);
@@ -94,11 +97,15 @@ class Level extends World with HasGameRef<pixel_adventure>{
               size: Vector2(spawnPoint.width, spawnPoint.height));
               add(dumpster);
               components.add(dumpster);
+          case 'Text':
+            final text = TextBox(texts : spawnPoint.properties.getValue('texts'), position: Vector2(spawnPoint.x,spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height));
+              add(text);
           default:
         }
       }
 
-    numberToWin(fruitCounter);
+    _numberToWin(fruitCounter);
     }
   }
   
@@ -138,7 +145,8 @@ class Level extends World with HasGameRef<pixel_adventure>{
     }
   }
 
-  void numberToWin(int fruitCounter){
+  void _numberToWin(int fruitCounter){
+    print(fruitCounter);
     for(Component stuff in components){
       if (stuff is Dumpster){
         stuff.assignNumberToWin(fruitCounter);

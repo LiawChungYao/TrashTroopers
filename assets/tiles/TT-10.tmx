@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="135">
+ <tileset firstgid="1" source="Pixel Adventure.tsx"/>
+ <layer id="1" name="Background" width="40" height="23">
+  <properties>
+   <property name="BackgroundColor" value="Blue"/>
+  </properties>
+  <data encoding="csv">
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,92,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,93,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,62,101,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,103,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,211,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,216,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,211,0,0,183,184,185,0,0,0,0,0,35,0,0,0,0,0,0,126,0,0,0,216,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,40,227,228,229,13,15,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,216,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,123,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,123,0,0,0,123,0,0,123,0,0,0,0,40,42,0,0,126,0,0,0,216,126,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0,0,0,0,148,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40,126,0,0,0,0,0,0,111,24,24,24,
+24,24,24,24,24,24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,148,216,0,0,0,0,0,111,24,24,24,
+24,24,24,24,24,24,24,24,114,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,115,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24
+</data>
+ </layer>
+ <objectgroup id="3" name="Collisions">
+  <object id="11" x="112" y="16" width="32" height="336"/>
+  <object id="12" x="128" y="320.667" width="464" height="31.333"/>
+  <object id="14" x="576" y="16" width="32" height="336"/>
+  <object id="15" x="134" y="16" width="454" height="31"/>
+  <object id="40" type="Platform" x="208" y="80" width="16" height="16"/>
+  <object id="41" x="224" y="80" width="336" height="16"/>
+  <object id="42" x="464" y="96" width="16" height="224"/>
+  <object id="43" x="544" y="96" width="16" height="192"/>
+  <object id="44" x="224" y="176" width="48" height="32"/>
+  <object id="45" x="176" y="176" width="16" height="16"/>
+  <object id="46" x="144" y="128" width="16" height="16"/>
+  <object id="47" x="480" y="128" width="16" height="16"/>
+  <object id="48" x="528" y="176" width="16" height="16"/>
+  <object id="49" x="480" y="208" width="16" height="16"/>
+  <object id="50" x="528" y="256" width="16" height="16"/>
+  <object id="51" x="480" y="304" width="16" height="16"/>
+  <object id="95" type="Platform" x="448" y="288" width="16" height="16"/>
+  <object id="96" type="Platform" x="400" y="256" width="32" height="16"/>
+  <object id="97" type="Platform" x="208" y="192" width="16" height="16"/>
+  <object id="99" x="160" y="240" width="16" height="16"/>
+  <object id="100" x="208" y="256" width="16" height="16"/>
+  <object id="101" x="272" y="256" width="16" height="16"/>
+  <object id="102" x="320" y="256" width="16" height="16"/>
+  <object id="111" x="352" y="176" width="16" height="16"/>
+  <object id="112" x="272" y="192" width="32" height="16"/>
+ </objectgroup>
+ <objectgroup id="2" name="Spawnpoints">
+  <object id="39" name="Player" type="Player" x="144" y="288" width="31.6667" height="31.3333"/>
+  <object id="87" type="Saw" x="288" y="256" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="2"/>
+    <property name="offPos" type="float" value="2"/>
+   </properties>
+  </object>
+  <object id="93" type="Saw" x="224" y="256" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="2"/>
+    <property name="offPos" type="float" value="2"/>
+   </properties>
+  </object>
+  <object id="107" type="Saw" x="352" y="256" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="2"/>
+    <property name="offPos" type="float" value="2"/>
+   </properties>
+  </object>
+  <object id="115" name="SodaCup" type="Fruit" x="368" y="176" width="32" height="32"/>
+  <object id="116" name="SodaCup" type="Fruit" x="368" y="96" width="32" height="32"/>
+  <object id="118" name="TrashBag" type="Fruit" x="256" y="288" width="32" height="32"/>
+  <object id="119" name="TrashBag" type="Fruit" x="320" y="288" width="32" height="32"/>
+  <object id="121" name="Dumpster" type="Dumpster" x="272" y="160" width="32" height="32"/>
+  <object id="122" name="TrashBag" type="Fruit" x="144" y="48" width="32" height="32"/>
+  <object id="123" name="SodaCup" type="Fruit" x="192" y="48" width="32" height="32"/>
+  <object id="124" name="Dumpster" type="Dumpster" x="544" y="288" width="32" height="32"/>
+  <object id="125" name="SodaCup" type="Fruit" x="480" y="272" width="32" height="32"/>
+  <object id="126" name="TrashBag" type="Fruit" x="512" y="224" width="32" height="32"/>
+  <object id="127" name="Dumpster" type="Dumpster" x="480" y="96" width="32" height="32"/>
+  <object id="129" type="Saw" x="112" y="-96" width="496" height="112">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="0"/>
+    <property name="offPos" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="130" type="Saw" x="0" y="464" width="560" height="112" rotation="-90">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="0"/>
+    <property name="offPos" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="132" type="Saw" x="112" y="352" width="496" height="112">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="0"/>
+    <property name="offPos" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="133" type="Saw" x="608" y="464" width="560" height="112" rotation="-90">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="0"/>
+    <property name="offPos" type="float" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

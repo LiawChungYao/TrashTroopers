@@ -22,12 +22,12 @@ class pixel_adventure extends FlameGame with HasKeyboardHandlerComponents, DragC
 
   bool showControls = false;
  
-  bool playSounds = true;
+  bool playSounds = false;
   double soundVolume = 1.0;
 
   late Level currWorld;
 
-  List<String> levelNames = ['TT-04', 'TT-03', 'TT-01'];
+  List<String> levelNames = ['TT-00', 'TT-02', 'TT-03', 'TT-04', 'TT-01', 'TT-05', 'TT-06','TT-07', 'TT-08','TT-09','TT-10'];
   int currentLevelIndex = 0;
 
   @override
@@ -35,7 +35,7 @@ class pixel_adventure extends FlameGame with HasKeyboardHandlerComponents, DragC
     // Load all images into cache
     await images.loadAllImages();
 
-    debugMode =true;
+    //debugMode =true;
     _loadLevel();
     
     if(showControls){

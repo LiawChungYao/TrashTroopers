@@ -93,7 +93,7 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<pixel_adventu
       position: Vector2(hitbox.offsetX, hitbox.offsetY),
       size: Vector2(hitbox.width, hitbox.height)
     ));
-    debugMode = true;
+    //debugMode = true;
     return super.onLoad();
   }
 

@@ -9,7 +9,7 @@ class Dumpster extends SpriteAnimationComponent with HasGameRef<pixel_adventure>
   Dumpster({position, size}) : super(position: position, size: size);
 
   late int numberToWin;
-  late int currNum = 0;
+  static int currNum = 0;
   final double stepTime = 0.05;
 
   bool collected = false;
@@ -37,6 +37,7 @@ class Dumpster extends SpriteAnimationComponent with HasGameRef<pixel_adventure>
   }
 
   bool collidingWithPlayer(int curr){
+    print(numberToWin);
     currNum += curr;
     if (numberToWin <= currNum){
       return true;
