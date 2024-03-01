@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flame/components.dart';
 import 'package:flutter_tests/pixel_adventure.dart';
 
-final style = TextStyle(color : Color.fromARGB(255, 248, 247, 247));
+final style = TextStyle(color : Color.fromARGB(255, 0, 0, 0));
 
 final regular = TextPaint(style: style);
 
